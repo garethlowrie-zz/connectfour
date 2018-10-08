@@ -1,0 +1,27 @@
+@import './variables';
+
+:global {
+	html,
+	body {
+		height: 100%;
+		width: 100%;
+		margin: 0;
+
+		font-family: 'Roboto', 'sans-serif';
+		font-size: 13px;
+		line-height: 20px;
+		color: @brand-black;
+	}
+
+	*,
+	*:before,
+	*:after {
+		box-sizing: border-box;
+	}
+
+	#root {
+		position: relative;
+		height: 100%;
+		z-index: 1;
+	}
+}

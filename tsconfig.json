@@ -13,5 +13,5 @@
 		"outDir": "./dist/", 					// Redirect output structure to the directory.
 		"lib": ["es2015", "es2016", "es2017", "es2018", "esnext", "dom"] // List of library files to be included in the compilation.
 	},
-	"include": ["./types/**/*", "./src/**/*", "./icons/**/*", "./styles.d.ts"]
+	"include": ["./types/**/*", "./src/**/*", "./icons/**/*", "./modules/**/*"]
 }
