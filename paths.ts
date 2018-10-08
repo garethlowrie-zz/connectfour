@@ -1,6 +1,6 @@
 const path = require('path');
 const base = path.join(__dirname);
-console.log(path, base);
+
 module.exports = {
 	base,
 	src: path.join(base, 'src'),

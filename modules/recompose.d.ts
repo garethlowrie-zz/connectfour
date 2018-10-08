@@ -19,3 +19,5 @@ declare module 'recompose/withHandlers';
 
 
 declare module 'styled-flex-component';
+
+declare module 'classnames';
