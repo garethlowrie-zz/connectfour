@@ -575,6 +575,16 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@types/lodash-es@^4.17.1":
+  version "4.17.1"
+  resolved "http://proget.cc-corp.int/npm/npm/@types/lodash-es/-/lodash-es-4.17.1.tgz#56745e5411558362aeca31def918f88f725dd29d"
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash@*":
+  version "4.14.116"
+  resolved "http://proget.cc-corp.int/npm/npm/@types/lodash/-/lodash-4.14.116.tgz#5ccf215653e3e8c786a58390751033a9adca0eb9"
+
 "@types/node@*":
   version "10.11.4"
   resolved "http://proget.cc-corp.int/npm/npm/@types/node/-/node-10.11.4.tgz#e8bd933c3f78795d580ae41d86590bfc1f4f389d"
@@ -3484,6 +3494,10 @@ locate-path@^3.0.0:
   dependencies:
     p-locate "^3.0.0"
     path-exists "^3.0.0"
+
+lodash-es@^4.17.11:
+  version "4.17.11"
+  resolved "http://proget.cc-corp.int/npm/npm/lodash-es/-/lodash-es-4.17.11.tgz#145ab4a7ac5c5e52a3531fb4f310255a152b4be0"
 
 lodash.camelcase@^4.3.0:
   version "4.3.0"
