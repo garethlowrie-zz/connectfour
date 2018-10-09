@@ -3,6 +3,7 @@ import styles from './styles.less';
 import classNames from 'classnames';
 
 interface IPropTypes {
+	tabIndex: number;
 	value: string;
 	id?: string;
 	name?: string;
