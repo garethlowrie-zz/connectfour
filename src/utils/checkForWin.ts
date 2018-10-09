@@ -1,5 +1,5 @@
 
-const NEEDED_TO_WIN = 4;
+// const NEEDED_TO_WIN = 4;
 
 // DIRECTION IDENTIFIERS
 const TOP = 'TOP';
@@ -22,15 +22,14 @@ interface ISurroundingSquares {
 	BOTTOM_RIGHT?: IGridSquare;
 }
 
-export function keys<O>(o: O) {
+function keys<O>(o: O) {
 	return Object.keys(o) as (keyof O)[];
-  }
+};
 
 export default (data: IGridSquare[], lastMove: IGridSquare) => {
 	const { x: lastMoveX, y: lastMoveY, color: lastMoveColor } = lastMove;
 
 	// Get the GridSquares around the lastMove
-
 	const SURROUNDING_SQUARES: ISurroundingSquares = {
 		[TOP]: data.find(({ x, y }) => x === lastMoveX && y === lastMoveY + 1),
 		[BOTTOM]: data.find(({ x, y }) => x === lastMoveX && y === lastMoveY - 1),
@@ -46,8 +45,7 @@ export default (data: IGridSquare[], lastMove: IGridSquare) => {
 	keys(SURROUNDING_SQUARES).forEach((key) => {
 		const item = SURROUNDING_SQUARES[key];
 		if (item === undefined || item && item.color !== lastMoveColor) {
-			delete SURROUNDING_SQUARES[key]
+			delete SURROUNDING_SQUARES[key];
 		}
-	}
-
-}
+	});
+};
