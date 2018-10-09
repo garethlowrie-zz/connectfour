@@ -1,3 +1,4 @@
+import { IGridSquare } from 'constants/setup';
 
 // const NEEDED_TO_WIN = 4;
 

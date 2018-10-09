@@ -1,3 +1,4 @@
+import { IGridSquare } from 'constants/setup';
 import { MAX_ROWS, MAX_COLUMNS } from "constants/setup";
 
 export default (rows: number = MAX_ROWS, cols: number = MAX_COLUMNS) => {

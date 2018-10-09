@@ -4,7 +4,7 @@ import Teams from 'enums/Teams';
 import classNames from 'classnames';
 
 interface IPropTypes {
-	variant: Teams;
+	variant?: Teams;
 }
 
 const GameDisc: React.SFC<IPropTypes> = ({
@@ -15,9 +15,13 @@ const GameDisc: React.SFC<IPropTypes> = ({
 		[styles.isYellow]: variant === Teams.Yellow,
 	});
 
-	return <div className={discClassName}>
-		<div className={classNames(discClassName, styles.frontCircle)} ></div>
-	</div>;
+	return (
+		<div className={styles.container}>
+			<div className={discClassName}>
+				<div className={classNames(styles.disc, styles.frontCircle)} ></div>
+			</div>
+		</div>
+	);
 };
 
 export default GameDisc;

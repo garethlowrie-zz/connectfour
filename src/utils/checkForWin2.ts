@@ -1,3 +1,5 @@
+import { IGridSquare } from 'constants/setup';
+
 import Teams from 'enums/Teams';
 
 // HORIZONTAL
@@ -20,23 +22,29 @@ const BOTTOM_RIGHT_TOP_LEFT_BUFFER = 6;
 const solutionChecker = (data: IGridSquare[], lastMove: IGridSquare, startPoints: number[], buffer: number): Teams|undefined => {
 	const { color: lastMoveColor } = lastMove;
 
+	let winner;
 	startPoints.forEach((index: number) => {
+
 		const item1 = data[index];
 		const item2 = data[index + buffer];
 		const item3 = data[index + (buffer * 2)];
 		const item4 = data[index + (buffer * 3)];
 
+		if (startPoints == BOTTOM_LEFT_TOP_RIGHT_SOLUTION_START_POINTS) {
+			console.log(item1, item2, item3, item4);
+		}
 		if (
 			item1.color === lastMoveColor &&
 			item2.color === lastMoveColor &&
 			item3.color === lastMoveColor &&
 			item4.color === lastMoveColor
 		) {
-			return lastMoveColor;
+			debugger;
+			winner = lastMoveColor;
 		}
 	});
 
-	return;
+	return winner;
 };
 
 export default (data: IGridSquare[], lastMove: IGridSquare): Teams|undefined => {
