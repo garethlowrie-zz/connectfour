@@ -1,11 +1,25 @@
 @import '~less/variables';
 
-.container {
-	height: 100%;
+.currentPlayer {
+	text-align: center;
+	text-transform: uppercase;
+	padding: 10px;
+	font-size: 16px;
+	font-weight: 500;
+	background-color: @brand-yellow;
+	color: @brand-black;
 }
 
-.input {
-	margin: 0 auto;
+.columnContainer {
+	position: relative;
 }
 
-
+.overlayColumn {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: red;
+	opacity: 0.5;
+}
