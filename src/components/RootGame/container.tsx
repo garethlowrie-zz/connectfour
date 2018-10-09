@@ -25,13 +25,10 @@ export default compose(
 				const newItem = data[itemToUpdate];										// Find the item to update
 				newItem.color = activeTeam;												// Add teams color to item
 				data[itemToUpdate] = newItem;											// Amend the item in data
-			}
-
-			if (nextSlot) {
 				winner = checkForWin2(data, activeTeam);
+				onClick(data, winner);
 			}
 
-			onClick(data, winner);
 		}
 	})
 )(RootGame);
