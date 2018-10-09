@@ -8,5 +8,14 @@ export default withHandlers({
 		}
 
 		onClick(event);
-	}
+	},
+	onKeyPress: ({ onClick, isDisabled }: any) => (event: React.KeyboardEvent<HTMLDivElement>) => {
+		if (isDisabled || !onClick) {
+			return;
+		}
+
+		if (event.key === 'Enter') {
+			onClick(event);
+		}
+	},
 })(Button);

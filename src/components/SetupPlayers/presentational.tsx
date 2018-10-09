@@ -26,13 +26,13 @@ const SetupPlayers: React.SFC<IPropTypes> = ({
 	return (
 		<Flex column justifyCenter alignCenter className={styles.container}>
 			<FlexItem >
-				<Input placeholder={LANG.playerOne} value={playerOneName} spellCheck={false} className={styles.input} onChange={onPlayerOneChange} />
+				<Input tabIndex={1} placeholder={LANG.playerOne} value={playerOneName} spellCheck={false} className={styles.input} onChange={onPlayerOneChange} />
 			</FlexItem>
 			<FlexItem>
-				<Input placeholder={LANG.playerTwo} value={playerTwoName} spellCheck={false} className={styles.input} onChange={onPlayerTwoChange} />
+				<Input tabIndex={2} placeholder={LANG.playerTwo} value={playerTwoName} spellCheck={false} className={styles.input} onChange={onPlayerTwoChange} />
 			</FlexItem>
 			<FlexItem>
-				<Button isDisabled={isStartDisabled} title={isStartDisabled ? LANG.youMustEnterNames : ''} onClick={onStart}>{LANG.start}</Button>
+				<Button tabIndex={3} isDisabled={isStartDisabled} title={isStartDisabled ? LANG.youMustEnterNames : ''} onClick={onStart}>{LANG.start}</Button>
 			</FlexItem>
 		</Flex>
 	)

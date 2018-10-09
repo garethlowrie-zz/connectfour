@@ -8,18 +8,20 @@ interface IPropTypes {
 	title?: string;
 	children: any;
 	onClick: React.MouseEventHandler<any>;
+	onKeyPress: (event: React.KeyboardEvent<HTMLDivElement>) => void;
 }
 
 const Button: React.SFC<IPropTypes> = ({
 	isDisabled,
 	className,
+	onKeyPress,
 	...props
 }) => {
 	const buttonClassName = classNames(styles.button, className, {
 		[styles.isDisabled]: isDisabled
 	});
 
-	return <div {...props} className={buttonClassName}>Start</div>
+	return <div {...props} className={buttonClassName} onKeyPress={onKeyPress}>Start</div>
 };
 
 export default Button;
