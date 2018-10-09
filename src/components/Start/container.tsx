@@ -36,9 +36,9 @@ export default compose(
 			setIsPlaying(true);
 		},
 
-		onPlayerTakesTurn: ({ activeTeam, setActiveTeam, setIsLeaderboardVisible, setWinner, setData }: any) => (data: IGridSquare[], winner?: Teams) => {
+		onPlayerTakesTurn: ({ redTeamName, yellowTeamName, activeTeam, setActiveTeam, setIsLeaderboardVisible, setWinner, setData }: any) => (data: IGridSquare[], winner?: Teams) => {
 			if (winner) {
-				setWinner(winner);
+				setWinner(winner === Teams.Red ? redTeamName : yellowTeamName);
 				setIsLeaderboardVisible(true);
 			}
 
