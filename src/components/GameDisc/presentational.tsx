@@ -18,7 +18,7 @@ const GameDisc: React.SFC<IPropTypes> = ({
 	return (
 		<div className={styles.container}>
 			<div className={discClassName}>
-				<div className={classNames(styles.disc, styles.frontCircle)} ></div>
+				<div className={classNames(styles.disc, styles.frontCircle)} />
 			</div>
 		</div>
 	);
