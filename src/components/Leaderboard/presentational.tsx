@@ -1,6 +1,5 @@
 import * as React from 'react';
-import Flex, { FlexItem } from 'styled-flex-component';
-import styles from './styles.less';
+import Dialog from 'components/Dialog/presentational';
 
 interface IPropTypes {
 	winner: string;
@@ -12,24 +11,7 @@ const Leaderboard: React.SFC<IPropTypes> = ({
 	onClose
 }) => {
 	return (
-		<Flex justifyCenter alignCenter className={styles.container}>
-			<FlexItem className={styles.modalContainer}>
-				<Flex column className={styles.modal}>
-					<FlexItem className={styles.header}>
-						<Flex alignCenter className={styles.header}>
-							<FlexItem grow={1}>Leaderboard</FlexItem>
-							<FlexItem onClick={onClose}>CLOSE</FlexItem>
-						</Flex>
-					</FlexItem>
-					<FlexItem grow={1} className={styles.body}>
-						{winner} is the winner!!!!!!!!
-					</FlexItem>
-					<FlexItem shrink className={styles.footer}>
-
-					</FlexItem>
-				</Flex>
-			</FlexItem>
-		</Flex>
+		<Dialog title="Leaderboard" onClose={onClose}>{winner} is the winner!!!!!!!!</Dialog>
 	)
 };
 
