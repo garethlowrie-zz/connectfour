@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Flex from 'styled-flex-component';
 import { IGridSquare } from 'constants/setup';
-import GameDisc from 'components/GameDisc/presentational';
+import GameDisc from 'components/GameDisc/container';
 import styles from './styles.less';
 import Teams from 'enums/Teams';
 
