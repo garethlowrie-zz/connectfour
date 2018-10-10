@@ -27,19 +27,19 @@ const GameColumn: React.SFC<IPropTypes> = ({
 }) => {
 	return (
 		<Flex
-			columnReverse
+			column
 			className={styles.column}
 			onClick={onClick}
 			onMouseEnter={onColumnEnter}
 			onMouseLeave={onColumnLeave}
 		>
+			<GameDisc variant={isHovering ? activeTeam : undefined}></GameDisc>
+
 			{data.map(
 				({ x, y, color }) => (
-					<GameDisc key={`${x},${y}`} variant={color} />
+					<GameDisc key={`${x},${y}`} row={y} variant={color} />
 				)
 			)}
-
-			<GameDisc variant={isHovering ? activeTeam : undefined}></GameDisc>
 		</Flex>
 	)
 };

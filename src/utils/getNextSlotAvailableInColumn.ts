@@ -2,10 +2,10 @@ import { IGridSquare } from 'constants/setup';
 
 const sortFn = (itemA: IGridSquare, itemB: IGridSquare) => {
 	if (itemA.y < itemB.y) {
-		return - 1;
+		return 1;
 	}
 	else if (itemA.y > itemB.y) {
-		return 1;
+		return -1;
 	}
 	else {
 		return 0;
