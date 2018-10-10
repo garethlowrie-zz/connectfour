@@ -24,7 +24,7 @@ const Leaderboard: React.SFC<IPropTypes> = ({
 }) => {
 	return (
 		<Container {...props}>
-			<Dialog title="Leaderboard" onClose={onClose}>{winner} is the winner!!!!!!!!</Dialog>
+			<Dialog title="🏆 Leaderboard" onClose={onClose}>{winner} is the winner!!!!!!!!</Dialog>
 		</Container>
 	)
 };
