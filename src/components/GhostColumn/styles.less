@@ -1,7 +1,10 @@
-.column {
-	background-color: orange;
+@import '~less/variables';
 
-	&:hover {
-		cursor: pointer;
-	}
+.column {
+	position: absolute;
+	top: 90px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: radial-gradient(circle, transparent, transparent, 34px, @brand-black 0, @brand-black 100%) center top/90px 90px;
 }
