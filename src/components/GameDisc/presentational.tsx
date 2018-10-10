@@ -2,15 +2,28 @@ import * as React from 'react';
 import styles from './styles.less';
 import Teams from 'enums/Teams';
 import classNames from 'classnames';
+import posed from 'react-pose';
 
 interface IPropTypes {
 	row?: number;
-	top: number;
+	outsidePosition: number;
 	variant?: Teams;
 }
 
+const Disc = posed.div({
+	outside: {
+		y: ({ outsidePosition }: any) => outsidePosition
+	  },
+	  inside: {
+		y: 0,
+		transition: {
+		  duration: 300
+		}
+	  }
+});
+
 const GameDisc: React.SFC<IPropTypes> = ({
-	top,
+	outsidePosition,
 	variant
 }) => {
 	const discClassName = classNames(styles.disc, {
@@ -18,13 +31,11 @@ const GameDisc: React.SFC<IPropTypes> = ({
 		[styles.isYellow]: variant === Teams.Yellow,
 	});
 
-	let style = { top };
-
 	return (
 		<div className={styles.container}>
-			<div style={style} className={discClassName}>
+			<Disc pose={variant ? 'inside' : 'outside'} outsidePosition={outsidePosition} className={discClassName}>
 				<div className={classNames(styles.disc, styles.frontCircle)} />
-			</div>
+			</Disc>
 		</div>
 	);
 };

@@ -5,7 +5,7 @@ import withPropsOnChange from 'recompose/withPropsOnChange';
 export default compose(
 	withPropsOnChange(['row', 'variant'], ({ row, variant }: any) => ({
 		// Calculate the absolut position for the game disc
-		top: !variant ? -Math.abs((row + 1) * 90) : 0
+		outsidePosition: !variant && row ? -Math.abs((row + 1) * 90) : 0
 	}))
 )
 (GameDisc);
