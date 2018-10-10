@@ -5,7 +5,8 @@ import SetupPlayers from 'components/SetupPlayers/container';
 import RootGame from 'components/RootGame/container';
 import Leaderboard from 'components/Leaderboard/container';
 import { IGridSquare } from 'constants/setup';
-import logo from 'images/logo.png';
+import { PoseGroup } from 'react-pose';
+//import logo from 'images/logo.png';
 
 interface IPropTypes {
 	data: IGridSquare[];
@@ -33,11 +34,17 @@ const Start: React.SFC<IPropTypes> = ({
 	return (
 		<Flex justifyCenter alignCenter className={styles.container} >
 			<FlexItem>
-				<img src={logo} className={styles.logo} />
-
-				{!isPlaying && <SetupPlayers onStart={onStart} />}
-				{isPlaying && <RootGame data={data} activeTeam={activeTeam} currentPlayer={currentPlayer} onClick={onPlayerTakesTurn} />}
-				{isLeaderboardVisible && <Leaderboard winner={winner} onClose={onLeaderboardClose} />}
+				{//<img src={logo} className={styles.logo} />
+				}
+				<PoseGroup animateOnMount={true}>
+					{
+						[
+							!isPlaying && <SetupPlayers key="setup" onStart={onStart} />,
+							isPlaying && <RootGame key="game" data={data} activeTeam={activeTeam} currentPlayer={currentPlayer} onPlayerTakesTurn={onPlayerTakesTurn} />,
+							isLeaderboardVisible && <Leaderboard key="leaderboard" winner={winner} onClose={onLeaderboardClose} />
+						] as any
+					}
+				</PoseGroup>
 			</FlexItem>
 		</Flex>
 	)
