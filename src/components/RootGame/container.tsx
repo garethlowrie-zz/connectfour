@@ -8,6 +8,7 @@ import { MAX_COLUMNS } from 'constants/setup';
 import generateColumns from 'utils/generateColumns';
 import withPropsOnChange from 'recompose/withPropsOnChange';
 import findIndex from 'lodash-es/findIndex';
+import omitProps from '@hocs/omit-props';
 
 export default compose(
 	withPropsOnChange(['data'], ({ data }: any) => ({
@@ -30,4 +31,5 @@ export default compose(
 
 		}
 	}),
+	omitProps('onPlayerTakesTurn')
 )(RootGame);
