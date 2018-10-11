@@ -8,6 +8,5 @@ module.exports = {
 	nodeModules: path.join(base, 'node_modules'),
 	customModules: path.join(base, 'custom_modules'),
 	dist: path.join(base, 'dist'),
-	icons: path.join(base, 'icons'),
 	images: path.join(base, 'images')
 };
