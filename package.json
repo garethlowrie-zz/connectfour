@@ -7,7 +7,7 @@
     "client": "webpack-dev-server --mode development --open",
     "server": "ts-node src/server/index.ts",
     "build": "webpack --mode production",
-    "start": "concurrently --kill-others \"webpack-dev-server --mode development --open\" \"nodemon --watch 'src/server/*.ts' --exec ts-node src/server/index.ts\""
+    "start": "concurrently --kill-others \"webpack-dev-server --mode development --open\" \"nodemon --watch 'server/*.ts' --exec ts-node server/index.ts\""
   },
   "author": "",
   "license": "ISC",
