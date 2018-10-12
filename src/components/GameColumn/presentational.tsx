@@ -26,21 +26,24 @@ const GameColumn: React.SFC<IPropTypes> = ({
 	onColumnLeave
 }) => {
 	return (
-		<Flex
-			column
-			className={styles.column}
-			onClick={onClick}
-			onMouseEnter={onColumnEnter}
-			onMouseLeave={onColumnLeave}
-		>
-			<GameDisc variant={isHovering ? activeTeam : undefined}></GameDisc>
+		<>
+			<Flex
+				column
+				className={styles.column}
+				onClick={onClick}
+				onMouseEnter={onColumnEnter}
+				onMouseLeave={onColumnLeave}
+			>
+				<GameDisc variant={isHovering ? activeTeam : undefined}></GameDisc>
 
-			{data.map(
-				({ x, y, color }) => (
-					<GameDisc key={`${x},${y}`} row={y} variant={color} />
-				)
-			)}
-		</Flex>
+				{data.map(
+					({ x, y, color }) => (
+						<GameDisc key={`${x},${y}`} row={y} variant={color} />
+					)
+				)}
+			</Flex>
+			<div className={styles.overlayColumn}></div>
+		</>
 	)
 };
 

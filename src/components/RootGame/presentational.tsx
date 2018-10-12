@@ -2,7 +2,6 @@ import * as React from 'react';
 import styles from './styles.less';
 import Flex, { FlexItem } from 'styled-flex-component';
 import GameColumn from 'components/GameColumn/container';
-import GhostColumn from 'components/GhostColumn/presentational';
 import { IGridSquare } from 'constants/setup';
 import Teams from 'enums/Teams';
 import posed from 'react-pose';
@@ -42,7 +41,6 @@ const RootGame: React.SFC<IPropTypes> = ({
 						(column, index) => (
 							<FlexItem key={`column-${index}`} className={styles.columnContainer}>
 								<GameColumn data={column} id={index} activeTeam={activeTeam} onClick={onColumnClick} />
-								<GhostColumn />
 							</FlexItem>
 						)
 					)}
