@@ -1,9 +1,9 @@
 import * as React from 'react';
 import styles from './styles.less';
 import Flex, { FlexItem } from 'styled-flex-component';
-import SetupPlayers from 'components/RootSetup/container';
+import RootSetup from 'components/RootSetup/container';
 import RootGame from 'components/RootGame/container';
-import Leaderboard from 'components/Leaderboard/container';
+import RootLeaderboard from 'components/RootLeaderboard/container';
 import { IGridSquare } from 'constants/setup';
 import { PoseGroup } from 'react-pose';
 //import logo from 'images/logo.png';
@@ -39,9 +39,9 @@ const Root: React.SFC<IPropTypes> = ({
 				<PoseGroup animateOnMount={true}>
 					{
 						[
-							!isPlaying && <SetupPlayers key="setup" onStart={onStart} />,
+							!isPlaying && <RootSetup key="setup" onStart={onStart} />,
 							isPlaying && <RootGame key="game" data={data} activeTeam={activeTeam} currentPlayer={currentPlayer} onPlayerTakesTurn={onPlayerTakesTurn} />,
-							isLeaderboardVisible && <Leaderboard key="leaderboard" winner={winner} onClose={onLeaderboardClose} />
+							isLeaderboardVisible && <RootLeaderboard key="leaderboard" winner={winner} onClose={onLeaderboardClose} />
 						] as any
 					}
 				</PoseGroup>
