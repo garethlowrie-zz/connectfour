@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styles from './styles.less';
 import Flex, { FlexItem } from 'styled-flex-component';
-import SetupPlayers from 'components/SetupPlayers/container';
+import SetupPlayers from 'components/RootSetup/container';
 import RootGame from 'components/RootGame/container';
 import Leaderboard from 'components/Leaderboard/container';
 import { IGridSquare } from 'constants/setup';

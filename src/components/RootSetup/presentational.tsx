@@ -6,7 +6,6 @@ import Button from 'components/Button/container';
 import LANG from 'constants/lang';
 import posed from 'react-pose';
 
-
 interface IPropTypes {
 	playerOneName: string;
 	playerTwoName: string;
@@ -27,7 +26,7 @@ const Container = posed.div({
 	}
 });
 
-const SetupPlayers: React.SFC<IPropTypes> = ({
+const RootSetup: React.SFC<IPropTypes> = ({
 	playerOneName,
 	playerTwoName,
 	isStartDisabled,
@@ -53,4 +52,4 @@ const SetupPlayers: React.SFC<IPropTypes> = ({
 	)
 };
 
-export default SetupPlayers;
+export default RootSetup;

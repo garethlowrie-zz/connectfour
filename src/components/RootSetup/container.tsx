@@ -2,7 +2,7 @@ import compose from 'recompose/compose';
 import withState from 'recompose/withState';
 import withHandlers from 'recompose/withHandlers';
 import withPropsOnChange from 'recompose/withPropsOnChange';
-import SetupPlayers from './presentational';
+import RootSetup from './presentational';
 
 export default compose(
 	withState('playerOneName', 'setPlayerOneName', ''),
@@ -25,4 +25,4 @@ export default compose(
 			onStart(playerOneName, playerTwoName);
 		}
 	})
-)(SetupPlayers);
+)(RootSetup);
