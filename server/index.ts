@@ -39,13 +39,20 @@ const init = async () => {
 			path: '/api/v1/players',
 			handler: (request, reply) => {
 				const { name }: IPlayer = request.payload as any;
+				return User.find({ name: name }, null, null, (err, docs) => {
+					if (docs) {
+						return docs[0];
+					}
+					else {
+						const player = new Player({
+							name,
+							score: 1
+						});
 
-				const player = new Player({
-					name,
-					score: 1
-				});
+						return player.save();
+					}
+				})
 
-				return player.save();
 			}
 		},
 		{
@@ -53,7 +60,7 @@ const init = async () => {
 			path: '/api/v1/players/increment',
 			handler: (request, reply) => {
 				const { name }: IPlayer = request.payload as any;
-				return User.findOneAndUpdate({ name }, { $inc: { score: 1 } });
+				return User.findOneAndUpdate({ name }, { $inc: { score: 1 } }, { new: true });
 			}
 		}
 	]);
