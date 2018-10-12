@@ -4,7 +4,7 @@ import RootGame from './presentational';
 import checkForWin from 'utils/checkForWin';
 import getColumn from 'utils/getColumn';
 import getNextSlotAvailableInColumn from 'utils/getNextSlotAvailableInColumn';
-import { MAX_COLUMNS } from 'constants/setup';
+import { NUMBER_OF_COLUMNS } from 'constants/setup';
 import generateColumns from 'utils/generateColumns';
 import withPropsOnChange from 'recompose/withPropsOnChange';
 import findIndex from 'lodash-es/findIndex';
@@ -12,7 +12,7 @@ import omitProps from '@hocs/omit-props';
 
 export default compose(
 	withPropsOnChange(['data'], ({ data }: any) => ({
-			columns: generateColumns(data, MAX_COLUMNS)
+			columns: generateColumns(data, NUMBER_OF_COLUMNS)
 	})),
 	withHandlers({
 		onColumnClick: ({ data, activeTeam, onPlayerTakesTurn }: any) => (column: number) => {
