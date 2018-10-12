@@ -20,7 +20,7 @@ interface IPropTypes {
 	onPlayerTakesTurn: React.MouseEventHandler<any>;
 }
 
-const Start: React.SFC<IPropTypes> = ({
+const Root: React.SFC<IPropTypes> = ({
 	data,
 	winner,
 	activeTeam,
@@ -50,4 +50,4 @@ const Start: React.SFC<IPropTypes> = ({
 	)
 };
 
-export default Start;
+export default Root;

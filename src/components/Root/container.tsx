@@ -1,7 +1,7 @@
 import compose from 'recompose/compose';
 import withHandlers from 'recompose/withHandlers';
 import withState from 'recompose/withState';
-import Start from './presentational';
+import Root from './presentational';
 import Teams from 'enums/Teams';
 import withPropsOnChange from 'recompose/withPropsOnChange';
 import { IGridSquare } from 'constants/setup';
@@ -50,4 +50,4 @@ export default compose(
 			reset();
 		}
 	})
-)(Start);
+)(Root);
