@@ -1,7 +1,7 @@
 import compose from 'recompose/compose';
 import withHandlers from 'recompose/withHandlers';
 import RootGame from './presentational';
-import checkForWin2 from 'utils/checkForWin2';
+import checkForWin from 'utils/checkForWin';
 import getColumn from 'utils/getColumn';
 import getNextSlotAvailableInColumn from 'utils/getNextSlotAvailableInColumn';
 import { MAX_COLUMNS } from 'constants/setup';
@@ -24,7 +24,7 @@ export default compose(
 				const newItem = data[itemToUpdate];										// Find the item to update
 				newItem.color = activeTeam;												// Add teams color to item
 				data[itemToUpdate] = newItem;											// Amend the item in data
-				winner = checkForWin2(data, activeTeam);
+				winner = checkForWin(data, activeTeam);
 
 				onPlayerTakesTurn(data, winner);
 			}
