@@ -1,8 +1,8 @@
-import Leaderboard from './presentational';
+import RootLeaderboard from './presentational';
 import compose from 'recompose/compose';
 
 
 export default compose(
 
 )
-(Leaderboard);
+(RootLeaderboard);

@@ -1,14 +1,11 @@
 import compose from 'recompose/compose';
 import withHandlers from 'recompose/withHandlers';
 import withState from 'recompose/withState';
-import Start from './presentational';
+import Root from './presentational';
 import Teams from 'enums/Teams';
 import withPropsOnChange from 'recompose/withPropsOnChange';
 import { IGridSquare } from 'constants/setup';
 import generateGame from 'utils/generateGame';
-//import generateGameNew from 'utils/generateGameNew';
-
-// const DUMMY_DATA = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
 export default compose(
 	withState('data', 'setData', () => generateGame()),
@@ -32,11 +29,6 @@ export default compose(
 			setData(generateGame());
 		}
 	}),
-	// withPropsOnChange(['data'], ({ data }: any) => {
-	// 	console.log(generateGameNew());
-	// 	console.log(checkForWin());
-	// 	return { data };
-	// }),
 	withHandlers({
 		onStart: ({ setIsPlaying, setRedTeamName, setYellowTeamName }: any) => (playerOneName: string, playerTwoName: string) => {
 			setRedTeamName(playerOneName);
@@ -58,4 +50,4 @@ export default compose(
 			reset();
 		}
 	})
-)(Start);
+)(Root);
