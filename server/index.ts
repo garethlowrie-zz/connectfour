@@ -37,35 +37,47 @@ const init = async () => {
 		{
 			method: 'POST',
 			path: '/api/v1/players',
-			handler: (request, reply) => {
+			handler: async(request, reply) => {
 				const { name }: IPlayer = request.payload as any;
-				return User.find({ name: name }, null, null, (err, docs) => {
-					if (docs) {
-						return docs[0];
+				let player;
+
+				await User.find({ name: name }, null, null, async (err, docs) => {
+					if (docs.length > 0) {
+						reply.response(docs[0]).code(201);
+						player = docs[0];
 					}
 					else {
-						const player = new Player({
+						const newPlayer = new Player({
 							name,
 							score: 1
 						});
-
-						return player.save();
+						
+						await newPlayer.save((err, doc) => {
+							if (doc) {
+								reply.response(newPlayer).code(201);
+								player = doc;
+							}
+						});
 					}
-				})
+				}).exec();
 
+				return player;
 			}
 		},
 		{
 			method: 'POST',
 			path: '/api/v1/players/increment',
 			handler: (request, reply) => {
-				const { name }: IPlayer = request.payload as any;
-				return User.findOneAndUpdate({ name }, { $inc: { score: 1 } }, { new: true });
+				const { _id } = request.payload as any;
+				return User.findByIdAndUpdate(
+					_id,
+					{ $inc: { score: 1 } },
+					{ new: true }
+				);
 			}
 		}
 	]);
 	await server.start();
-	console.log(keys.connectionUri)
 	console.log(`Server up and running @ ${server.info.uri}`)
 }
 
