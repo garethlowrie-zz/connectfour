@@ -35,32 +35,38 @@ const init = async () => {
 			}
 		},
 		{
+			method: 'GET',
+			path: '/api/v1/players/top',
+			handler: (request, reply) => {
+				const DEFAULT_LIMIT = 10;
+				const { quantity } = request.query as any;
+				const quantityAsNumber = Number(quantity);
+				const limit = isNaN(quantityAsNumber) ? DEFAULT_LIMIT : quantityAsNumber;
+				return User.find().sort({ score: -1}).limit(limit).exec();
+			}
+		},
+		{
 			method: 'POST',
 			path: '/api/v1/players',
 			handler: async(request, reply) => {
 				const { name }: IPlayer = request.payload as any;
-				let player;
+				let player: any;
 
-				await User.find({ name: name }, null, null, async (err, docs) => {
-					if (docs.length > 0) {
-						reply.response(docs[0]).code(201);
-						player = docs[0];
-					}
-					else {
-						const newPlayer = new Player({
-							name,
-							score: 1
-						});
-						
-						await newPlayer.save((err, doc) => {
-							if (doc) {
-								reply.response(newPlayer).code(201);
-								player = doc;
-							}
-						});
-					}
-				}).exec();
+				const result = await User.find({ name: name }).exec();
 
+				if(result.length > 0) {
+					player = result[0];
+				}
+				else {
+					const newPlayer = new Player({
+						name,
+						score: 1
+					});
+					
+					const createResult = await newPlayer.save();
+					player = createResult;
+				}
+				
 				return player;
 			}
 		},
