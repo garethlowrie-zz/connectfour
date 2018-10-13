@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 import keys from '../server/config/keys';
 import User, { IPlayer } from '../server/models/Player';
 import Player from '../server/models/Player';
+import { graphqlHapi, graphiqlHapi} from 'graphql-server-hapi';
+import schema from '../server/graphql/schema';
 
 mongoose.connect(keys.connectionUri);
 
@@ -18,7 +20,36 @@ const server = new Hapi.Server({
 	host: 'localhost'
 });
 
+
 const init = async () => {
+	
+
+	await server.register({
+		plugin: graphqlHapi,
+		options: {
+			path: '/graphql',
+			graphQlOptions: {
+				schema
+			},
+			route: {
+				cors: true
+			}
+		}
+	});
+
+	await server.register({
+		plugin: graphiqlHapi,
+		options: {
+			path: '/graphiql',
+			graphiqlOptions: {
+				endpointURL:  '/graphql'
+			},
+			route: {
+				cors: true
+			}
+		}
+	});
+
 	server.route([
 		{
 			method: 'GET',
