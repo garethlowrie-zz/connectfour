@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Dialog from 'components/Dialog/presentational';
 import posed from 'react-pose';
+import { Query } from "react-apollo";
+import gql from "graphql-tag";
 
 interface IPropTypes {
 	winner: string;
@@ -17,6 +19,15 @@ const Container = posed.div({
 	}
 });
 
+const QUERY = gql`
+{
+	player(id: "5bc1d5d9fea14b246a649fa1") {
+	name
+	score
+	}
+}
+`;
+
 const Leaderboard: React.SFC<IPropTypes> = ({
 	winner,
 	onClose,
@@ -24,7 +35,23 @@ const Leaderboard: React.SFC<IPropTypes> = ({
 }) => {
 	return (
 		<Container {...props}>
-			<Dialog title="🏆 Leaderboard" onClose={onClose}>{winner} is the winner!!!!!!!!</Dialog>
+			<Dialog title="🏆 Leaderboard" onClose={onClose}>
+				{winner} is the winner!!!!!!!!
+				<Query
+					query={QUERY}
+				>
+					{({ loading, error, data }) => {
+						if (loading) return <p>Loading...</p>;
+						if (error) return <p>Error :(</p>;
+						
+						const { name, score } = data.player;
+						return (
+							<div>{name} {score}</div>
+						)
+					}}
+				</Query>
+			
+			</Dialog>
 		</Container>
 	)
 };

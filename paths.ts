@@ -7,7 +7,6 @@ module.exports = {
 	src,
 	server: path.join(base, 'server'),
 	nodeModules: path.join(base, 'node_modules'),
-	customModules: path.join(base, 'custom_modules'),
 	dist: path.join(base, 'dist'),
 	images: path.join(src, 'images')
 };

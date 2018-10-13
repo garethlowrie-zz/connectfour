@@ -11,6 +11,7 @@
 		"strict": true, 						// Enable all strict type checking options.
 		"baseUrl": "/", 					// Base directory to resolve non-relative module names.
 		"outDir": "./dist/", 					// Redirect output structure to the directory.
+		"resolveJsonModule": true,
 		"lib": ["es2015", "es2016", "es2017", "es2018", "esnext", "dom"] // List of library files to be included in the compilation.
 	},
 	"include": ["./src/**/*", "./server/**/*", "./modules/**/*"]

@@ -1,6 +1,18 @@
 import * as React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import Root from 'components/Root/container';
 import 'less/index.less';
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
 
-ReactDOM.render(<Root />, document.getElementById('root'));
+const client = new ApolloClient({
+    uri: "http://localhost:5000/graphql"
+});
+
+const App = () => (
+    <ApolloProvider client={client}>
+        <Root />
+    </ApolloProvider>
+);
+
+render(<App />, document.getElementById('root'));

@@ -1,5 +1,6 @@
 import { GraphQLObjectType, GraphQLString, GraphQLSchema  } from 'graphql';
 import PlayerType from './PlayerType';
+import Player from '../models/Player';
 
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
@@ -8,7 +9,7 @@ const RootQuery = new GraphQLObjectType({
             type: PlayerType,
             args: { id: { type: GraphQLString } },
             resolve(parent, args) {
-                // Logic for serving data
+                return Player.findById(args.id);
             }
         }
     }
