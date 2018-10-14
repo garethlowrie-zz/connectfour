@@ -3,6 +3,7 @@ import Flex, { FlexItem } from 'styled-flex-component';
 import Loader from 'src/components/Loader/container';
 import logo from 'images/logo.png';
 import styles from './styles.less';
+import LANG from 'src/constants/lang';
 
 interface IPropTypes {
 	isLoading: boolean,
@@ -28,14 +29,14 @@ const LeaderboardTable: React.SFC<IPropTypes> = ({
 			{isErrored && (
 				<div className={styles.errorContainer}>
 					<img src={logo} />
-					<p className={styles.error}>Whoops we couldn't find the leaderboard <br />Be sure to try again later</p>
+					<p className={styles.error}>{LANG.couldntFindLeaderboard}<br />{LANG.beSureToTryAgain}</p>
 				</div>
 			)}
 			{isData &&
 				<>
 					<Flex key="header" className={styles.header}>
-						<FlexItem grow={1}>Player Name</FlexItem>
-						<FlexItem >Score</FlexItem>
+						<FlexItem grow={1}>{LANG.playerName}</FlexItem>
+						<FlexItem>{LANG.score}</FlexItem>
 					</Flex>
 					{data.map(({ name, score }: any) => (
 						<Flex key={`${name}-${score}`} className={styles.row}>

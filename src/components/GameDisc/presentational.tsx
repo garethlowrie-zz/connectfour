@@ -12,14 +12,14 @@ interface IPropTypes {
 
 const Disc = posed.div({
 	outside: {
-		y: ({ outsidePosition }: any) => outsidePosition
-	  },
-	  inside: {
+        y: ({ outsidePosition }: any) => outsidePosition
+    },
+    inside: {
 		y: 0,
 		transition: {
-		  duration: 300
+            duration: 300
 		}
-	  }
+    }
 });
 
 const GameDisc: React.SFC<IPropTypes> = ({

@@ -5,6 +5,7 @@ import GameColumn from 'src/components/GameColumn/container';
 import { IGridSquare } from 'src/constants/setup';
 import Teams from 'src/enums/Teams';
 import posed from 'react-pose';
+import LANG from 'src/constants/lang';
 
 interface IPropTypes {
 	activeTeam: Teams;
@@ -34,7 +35,7 @@ const RootGame: React.SFC<IPropTypes> = ({
 		<Container {...props}>
 			<div>
 				<div className={styles.currentPlayer}>
-					IT'S {currentPlayer}'s turn
+					{LANG.its} {currentPlayer}'s {LANG.turn}
 				</div>
 				<Flex justifyCenter alignCenter>
 					{columns.map(

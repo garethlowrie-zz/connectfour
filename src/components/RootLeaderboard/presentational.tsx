@@ -7,6 +7,7 @@ import LeaderboardTable from 'src/components/LeaderboardTable/presentational';
 import { ApolloError } from 'apollo-client';
 import Flex, { FlexItem } from 'styled-flex-component';
 import styles from './styles.less';
+import LANG from 'src/constants/lang';
 
 interface IPropTypes {
 	winner: string;
@@ -42,7 +43,7 @@ const RootLeaderboard: React.SFC<IPropTypes> = ({
 }) => {
 	return (
 		<Container {...props}>
-			<Dialog title="🏆 Leaderboard" onClose={onClose}>
+			<Dialog title={`🏆 ${LANG.leaderboard}`} onClose={onClose}>
 				<Flex full column className={styles.dialogBodyContainer}>
 					<FlexItem>
 						<div className={styles.winningScoreContainer}>
@@ -51,7 +52,7 @@ const RootLeaderboard: React.SFC<IPropTypes> = ({
 							</div>
 						</div>
 						<div className={styles.winner}>
-							<span className={styles.winnerName}>{winner}</span> wins this round!
+							<span className={styles.winnerName}>{winner}</span> {LANG.winsThisRound}
 						</div>
 					</FlexItem>
 					<Query
