@@ -7,7 +7,6 @@ import Teams from 'src/enums/Teams';
 
 interface IPropTypes {
 	id: number;
-	top?: number;
 	isHovering: boolean;
 	activeTeam: Teams;
 	data: IGridSquare[];
@@ -17,7 +16,6 @@ interface IPropTypes {
 }
 
 const GameColumn: React.SFC<IPropTypes> = ({
-	top,
 	isHovering,
 	activeTeam,
 	data,
