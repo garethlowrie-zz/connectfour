@@ -8,5 +8,5 @@ module.exports = {
 	server: path.join(base, 'server'),
 	nodeModules: path.join(base, 'node_modules'),
 	dist: path.join(base, 'dist'),
-	images: path.join(src, 'images')
+	images: path.join(base, 'images')
 };

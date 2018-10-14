@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Flex, { FlexItem } from 'styled-flex-component';
 import styles from './styles.less';
-import DialogHeader from 'components/DialogHeader/presentational';
+import DialogHeader from 'src/components/DialogHeader/presentational';
 
 interface IPropTypes {
 	title: string;

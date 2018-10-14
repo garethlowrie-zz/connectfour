@@ -1,4 +1,4 @@
-import { IGridSquare } from 'constants/setup';
+import { IGridSquare } from 'src/constants/setup';
 
 const sortFn = (itemA: IGridSquare, itemB: IGridSquare) => {
 	if (itemA.y < itemB.y) {

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render } from 'react-dom';
-import Root from 'components/Root/container';
-import 'less/index.less';
+import Root from 'src/components/Root/container';
+import 'src/less/index.less';
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Flex from 'styled-flex-component';
-import { IGridSquare } from 'constants/setup';
-import GameDisc from 'components/GameDisc/container';
+import { IGridSquare } from 'src/constants/setup';
+import GameDisc from 'src/components/GameDisc/container';
 import styles from './styles.less';
-import Teams from 'enums/Teams';
+import Teams from 'src/enums/Teams';
 
 interface IPropTypes {
 	id: number;

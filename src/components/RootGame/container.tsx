@@ -1,11 +1,11 @@
 import compose from 'recompose/compose';
 import withHandlers from 'recompose/withHandlers';
 import RootGame from './presentational';
-import checkForWin from 'utils/checkForWin';
-import getColumn from 'utils/getColumn';
-import getNextSlotAvailableInColumn from 'utils/getNextSlotAvailableInColumn';
-import { NUMBER_OF_COLUMNS } from 'constants/setup';
-import generateColumns from 'utils/generateColumns';
+import checkForWin from 'src/utils/checkForWin';
+import getColumn from 'src/utils/getColumn';
+import getNextSlotAvailableInColumn from 'src/utils/getNextSlotAvailableInColumn';
+import { NUMBER_OF_COLUMNS } from 'src/constants/setup';
+import generateColumns from 'src/utils/generateColumns';
 import withPropsOnChange from 'recompose/withPropsOnChange';
 import findIndex from 'lodash-es/findIndex';
 import omitProps from '@hocs/omit-props';
@@ -31,5 +31,5 @@ export default compose(
 
 		}
 	}),
-	omitProps('onPlayerTakesTurn')
+	omitProps('data', 'onPlayerTakesTurn')
 )(RootGame);

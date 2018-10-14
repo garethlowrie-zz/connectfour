@@ -1,9 +1,9 @@
 import * as React from 'react';
 import styles from './styles.less';
 import Flex, { FlexItem } from 'styled-flex-component';
-import GameColumn from 'components/GameColumn/container';
-import { IGridSquare } from 'constants/setup';
-import Teams from 'enums/Teams';
+import GameColumn from 'src/components/GameColumn/container';
+import { IGridSquare } from 'src/constants/setup';
+import Teams from 'src/enums/Teams';
 import posed from 'react-pose';
 
 interface IPropTypes {

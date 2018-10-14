@@ -1,10 +1,11 @@
 import * as React from 'react';
 import styles from './styles.less';
 import Flex, { FlexItem } from 'styled-flex-component';
-import Input from 'components/Input/container';
-import Button from 'components/Button/container';
-import LANG from 'constants/lang';
+import Input from 'src/components/Input/container';
+import Button from 'src/components/Button/container';
+import LANG from 'src/constants/lang';
 import posed from 'react-pose';
+import logo from 'images/logo.png';
 
 interface IPropTypes {
 	playerOneName: string;
@@ -38,6 +39,9 @@ const RootSetup: React.SFC<IPropTypes> = ({
 	return (
 		<Container {...props}>
 			<Flex column justifyCenter alignCenter className={styles.container}>
+				<FlexItem>
+					<img src={logo} className={styles.logo} />
+				</FlexItem>
 				<FlexItem >
 					<Input tabIndex={1} placeholder={LANG.playerOne} value={playerOneName} spellCheck={false} className={styles.input} onChange={onPlayerOneChange} />
 				</FlexItem>

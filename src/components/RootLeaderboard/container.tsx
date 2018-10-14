@@ -3,6 +3,7 @@ import compose from 'recompose/compose';
 import { graphql } from "react-apollo";
 import gql from "graphql-tag";
 import lifecycle from 'recompose/lifecycle';
+import withState from 'recompose/withState';
 
 const findPlayerQuery = gql`
     query Player($name: String) {
@@ -31,6 +32,7 @@ const incrementScoreQuery = gql`
 `;
 
 export default compose(
+    withState('winningScore', 'setWinningScore'),
     graphql(findPlayerQuery, {
         name: 'player',
         options: (props: any) => ({
@@ -65,26 +67,28 @@ export default compose(
     }),
     lifecycle({
         async componentDidMount() {
-            const { player: { player }, incrementScore } = this.props;
+            const { player: { player }, incrementScore, setWinningScore } = this.props;
+            console.log('mount')
             if(player) {
-                const result = await incrementScore(player._id);
-                console.log('mount ', result)
+                const {data: { incrementScore: { score } }} = await incrementScore(player._id);
+                setWinningScore(score);
             }
 
         },
         async componentDidUpdate(prevProps: any) {
-            const { winner, player: { player, loading }, createPlayer, incrementScore } = this.props;
+            console.log('update ')
+            const { winner, player: { player, loading }, createPlayer, incrementScore, setWinningScore } = this.props;
             const hasFetchedNewData = prevProps.player.loading && !loading;
             if(hasFetchedNewData && player) {
-                const result = await incrementScore(player._id);
-                console.log('update ', result)
-
+                const {data: { incrementScore: { score } }} = await incrementScore(player._id);
+                setWinningScore(score);
             }
 
             if(hasFetchedNewData && !player) {
                 createPlayer(winner, 1);
+                setWinningScore(1);
             }
         }
-    }),
+    })
 )
 (RootLeaderboard);

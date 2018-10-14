@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styles from './styles.less';
-import Teams from 'enums/Teams';
+import Teams from 'src/enums/Teams';
 import classNames from 'classnames';
 import posed from 'react-pose';
 

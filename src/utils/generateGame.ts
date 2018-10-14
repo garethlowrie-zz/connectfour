@@ -1,5 +1,5 @@
-import { IGridSquare } from 'constants/setup';
-import { NUMBER_OF_ROWS, NUMBER_OF_COLUMNS } from 'constants/setup';
+import { IGridSquare } from 'src/constants/setup';
+import { NUMBER_OF_ROWS, NUMBER_OF_COLUMNS } from 'src/constants/setup';
 
 export default (rows: number = NUMBER_OF_ROWS, cols: number = NUMBER_OF_COLUMNS) => {
 	let xCounter = 0;

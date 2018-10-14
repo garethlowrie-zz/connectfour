@@ -1,23 +1,40 @@
-@import '~less/variables';
+@import '~src/less/variables';
 
-.row {
+.dialogBodyContainer {
+    position: absolute;
+}
+
+.winningScoreContainer {
+    margin: 20px 0;
+}
+
+.winningScore {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+
     padding: 10px;
-
-    &:nth-child(odd) {
-        background-color: lighten(@brand-yellow, 40%);
-    }
-}
-
-.name {
-    font-size: 13px;
-}
-
-.score {
-    font-size: 16px;
-}
-
-.header {
-    padding: 10px;
+    font-size: 32px;
     font-weight: 500;
-    font-size: 15px;
+    border-radius: 20px;
+    background-color: lighten(@brand-yellow, 20%);
+}
+
+.winner {
+    text-align: center;
+    font-size: 20px;
+}
+
+.text {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+.winnerName {
+    font-weight: 500;
 }

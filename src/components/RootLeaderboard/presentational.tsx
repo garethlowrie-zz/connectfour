@@ -1,20 +1,23 @@
 import * as React from 'react';
-import Dialog from 'components/Dialog/presentational';
+import Dialog from 'src/components/Dialog/presentational';
 import posed from 'react-pose';
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import styles from './styles.less';
+import LeaderboardTable from 'src/components/LeaderboardTable/presentational';
+import { ApolloError } from 'apollo-client';
 import Flex, { FlexItem } from 'styled-flex-component';
+import styles from './styles.less';
 
 interface IPropTypes {
 	winner: string;
-	getQuery: any
 	onClose: React.MouseEventHandler<any>;
+	winningScore: number;
 }
 
 const Container = posed.div({
 	exit: {
-		opacity: 0
+		opacity: 0,
+		delay: 300
 	},
 	enter: {
 		opacity: 1,
@@ -23,7 +26,7 @@ const Container = posed.div({
 });
 
 const QUERY = gql`
-	query TopPlayers($quantity: Int = 10){
+	query TopPlayers($quantity: Int){
 		topPlayers(quantity: $quantity) {
 			name
 			score
@@ -31,46 +34,41 @@ const QUERY = gql`
 	}
 `;
 
-
-const Leaderboard: React.SFC<IPropTypes> = ({
+const RootLeaderboard: React.SFC<IPropTypes> = ({
 	winner,
-	getQuery,
+	winningScore,
 	onClose,
 	...props
 }) => {
-	const vars = { quantity: null };
 	return (
 		<Container {...props}>
 			<Dialog title="🏆 Leaderboard" onClose={onClose}>
-				{winner} is the winner!!!!!!!!
-				<Query
-					query={QUERY}
-					variables={vars}
-				>
-					{({ loading, error, data }) => {
-						if (loading) return <p>Loading...</p>;
-						if (error) return <p>Error :(</p>;
-
-						return [
-							data.topPlayers.length > 0 && (
-								<Flex key="header" className={styles.header}>
-									<FlexItem grow={1}>Player Name</FlexItem>
-									<FlexItem >Score</FlexItem>
-								</Flex>
-							),
-							data.topPlayers.map(({ name, score }: any) => (
-								<Flex key={`${name}-${score}`} className={styles.row}>
-									<FlexItem grow={1} className={styles.name}>{name}</FlexItem>
-									<FlexItem className={styles.score}>{score}</FlexItem>
-								</Flex>
-							))
-						];
-					}}
-				</Query>
-			
+				<Flex full column className={styles.dialogBodyContainer}>
+					<FlexItem>
+						<div className={styles.winningScoreContainer}>
+							<div className={styles.winningScore}>
+								<div className={styles.text}>{winningScore}</div>
+							</div>
+						</div>
+						<div className={styles.winner}>
+							<span className={styles.winnerName}>{winner}</span> wins this round!
+						</div>
+					</FlexItem>
+					<Query
+						query={QUERY}
+						variables={{ quantity: 5 }}
+					>
+						{({ loading, error, data }) => {
+							const isErrored = error instanceof ApolloError;
+							return (
+								<LeaderboardTable isLoading={loading} isErrored={isErrored} data={data.topPlayers} />
+							)
+						}}
+					</Query>
+				</Flex>
 			</Dialog>
 		</Container>
 	)
 };
 
-export default Leaderboard;
+export default RootLeaderboard;

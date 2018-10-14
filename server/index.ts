@@ -40,7 +40,7 @@ export const start = async () => {
     MongoClient.connect(MONGO_URL, (err, client) => {
 		let db = client.db('emailydev');
 		const Players = db.collection('players');
-		const DEFAULT_QUANTITY = 10;
+		const DEFAULT_QUANTITY = 5;
 
 		const resolvers = {
 			Query: {

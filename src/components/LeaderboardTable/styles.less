@@ -1,0 +1,37 @@
+@import '~src/less/variables';
+
+.container {
+    padding: 40px;
+}
+
+.row {
+    padding: 10px;
+
+    &:nth-child(odd) {
+        background-color: lighten(@brand-yellow, 40%);
+    }
+}
+
+.name {
+    font-size: 13px;
+}
+
+.score {
+    font-size: 16px;
+}
+
+.header {
+    padding: 10px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.error {
+    font-size: @font-size-xlarge;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.errorContainer {
+    text-align: center;
+}

@@ -2,10 +2,10 @@ import compose from 'recompose/compose';
 import withHandlers from 'recompose/withHandlers';
 import withState from 'recompose/withState';
 import Root from './presentational';
-import Teams from 'enums/Teams';
+import Teams from 'src/enums/Teams';
 import withPropsOnChange from 'recompose/withPropsOnChange';
-import { IGridSquare } from 'constants/setup';
-import generateGame from 'utils/generateGame';
+import { IGridSquare } from 'src/constants/setup';
+import generateGame from 'src/utils/generateGame';
 
 export default compose(
 	withState('data', 'setData', () => generateGame()),
