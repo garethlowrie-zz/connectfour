@@ -36,6 +36,7 @@ export default compose(
     graphql(findPlayerQuery, {
         name: 'player',
         options: (props: any) => ({
+            fetchPolicy: 'network-only',
             variables: {
                 name: props.winner
             }
@@ -71,28 +72,14 @@ export default compose(
         })
     }),
     lifecycle({
-        async componentDidMount() {
-            const { winner, player: { player }, incrementScore, setWinningScore } = this.props;
-
-            if (!winner) {
-                return; // If just viewing the leaderboard and there is no winner - we do not update the scores.
-            }
-
-            if (player) {
-                const {data: { incrementScore: { score } }} = await incrementScore(player._id);
-                setWinningScore(score);
-            }
-
-        },
         async componentDidUpdate(prevProps: any) {
             const { winner, player: { player, loading }, createPlayer, incrementScore, setWinningScore } = this.props;
-
             if (!winner) {
                 return;  // If just viewing the leaderboard and there is no winner - we do not update the scores.
             }
 
-            const hasFetchedNewData = prevProps.player.loading && !loading;
-            if(hasFetchedNewData && player) {
+            const hasFetchedNewData = prevProps.player.loading === true  && loading === false;
+            if (hasFetchedNewData && player) {
                 const { data: { incrementScore: { score } } } = await incrementScore(player._id);
                 setWinningScore(score);
             }
