@@ -42,6 +42,11 @@ export default compose(
         })
     }),
     graphql(createPlayerQuery, {
+        options: {
+            refetchQueries: [
+                'TopPlayers'
+            ]
+        },
         props: ({ mutate }: any) => ({
             createPlayer: (name: string, score: number) => mutate({
                 variables: {
@@ -73,7 +78,7 @@ export default compose(
                 return; // If just viewing the leaderboard and there is no winner - we do not update the scores.
             }
 
-            if(player) {
+            if (player) {
                 const {data: { incrementScore: { score } }} = await incrementScore(player._id);
                 setWinningScore(score);
             }
@@ -88,11 +93,11 @@ export default compose(
 
             const hasFetchedNewData = prevProps.player.loading && !loading;
             if(hasFetchedNewData && player) {
-                const {data: { incrementScore: { score } }} = await incrementScore(player._id);
+                const { data: { incrementScore: { score } } } = await incrementScore(player._id);
                 setWinningScore(score);
             }
 
-            if(hasFetchedNewData && !player) {
+            if (hasFetchedNewData && !player) {
                 createPlayer(winner, 1);
                 setWinningScore(1);
             }
