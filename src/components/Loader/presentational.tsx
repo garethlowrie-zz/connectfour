@@ -35,7 +35,6 @@ const Loader: React.SFC<IPropTypes> = ({
 				<LoadingBar pose={on ? 'left' : 'right'} className={styles.loadingBar} />
 			</div>
 		</div>
-		
 	)
 };
 

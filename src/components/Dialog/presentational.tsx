@@ -18,7 +18,7 @@ const Dialog: React.SFC<IPropTypes> = ({
 		<Flex justifyCenter alignCenter className={styles.container}>
 			<FlexItem className={styles.modalContainer}>
 				<Flex column className={styles.modal}>
-					<FlexItem className={styles.header}>
+					<FlexItem>
 						<DialogHeader onClose={onClose}>{title}</DialogHeader>
 					</FlexItem>
 					<FlexItem grow={1} className={styles.body}>

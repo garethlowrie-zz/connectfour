@@ -17,5 +17,5 @@ export default withHandlers({
 		if (event.key === 'Enter') {
 			onClick(event);
 		}
-	},
+	}
 })(Button);

@@ -16,6 +16,7 @@ interface IPropTypes {
 	onPlayerOneChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 	onPlayerTwoChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 	onStart: React.MouseEventHandler<any>;
+	onLeaderboardClick: React.MouseEventHandler<any>;
 }
 
 const Container = posed.div({
@@ -36,6 +37,7 @@ const RootSetup: React.SFC<IPropTypes> = ({
 	onPlayerOneChange,
 	onPlayerTwoChange,
 	onStart,
+	onLeaderboardClick,
 	...props
 }) => {
 	return (
@@ -51,7 +53,8 @@ const RootSetup: React.SFC<IPropTypes> = ({
 					<Input tabIndex={2} placeholder={LANG.playerTwo} value={playerTwoName} spellCheck={false} className={styles.input} onChange={onPlayerTwoChange} />
 				</FlexItem>
 				<FlexItem>
-					<Button tabIndex={3} isDisabled={isStartDisabled} title={startButtonTitle} onClick={onStart}>{LANG.start}</Button>
+					<Button tabIndex={3} className={styles.button} isDisabled={isStartDisabled} title={startButtonTitle} onClick={onStart}>{LANG.start}</Button>
+					<Button tabIndex={4} className={styles.button} onClick={onLeaderboardClick}>{LANG.leaderboard}</Button>
 				</FlexItem>
 			</Flex>
 		</Container>

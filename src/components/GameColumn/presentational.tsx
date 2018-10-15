@@ -32,12 +32,10 @@ const GameColumn: React.SFC<IPropTypes> = ({
 				onMouseEnter={onColumnEnter}
 				onMouseLeave={onColumnLeave}
 			>
-				<GameDisc variant={isHovering ? activeTeam : undefined}></GameDisc>
+				<GameDisc variant={isHovering ? activeTeam : undefined} />
 
 				{data.map(
-					({ x, y, color }) => (
-						<GameDisc key={`${x},${y}`} row={y} variant={color} />
-					)
+					({ x, y, color }) => <GameDisc key={`${x},${y}`} row={y} variant={color} />
 				)}
 			</Flex>
 			<div className={styles.overlayColumn}></div>

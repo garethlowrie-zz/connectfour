@@ -45,16 +45,18 @@ const RootLeaderboard: React.SFC<IPropTypes> = ({
 		<Container {...props}>
 			<Dialog title={`🏆 ${LANG.leaderboard}`} onClose={onClose}>
 				<Flex full column className={styles.dialogBodyContainer}>
-					<FlexItem>
-						<div className={styles.winningScoreContainer}>
-							<div className={styles.winningScore}>
-								<div className={styles.text}>{winningScore}</div>
+					{winningScore && winner && (
+						<FlexItem>
+							<div className={styles.winningScoreContainer}>
+								<div className={styles.winningScore}>
+									<div className={styles.text}>{winningScore}</div>
+								</div>
 							</div>
-						</div>
-						<div className={styles.winner}>
-							<span className={styles.winnerName}>{winner}</span> {LANG.winsThisRound}
-						</div>
-					</FlexItem>
+							<div className={styles.winner}>
+								<span className={styles.winnerName}>{winner}</span> {LANG.winsThisRound}
+							</div>
+						</FlexItem>
+					)}
 					<Query
 						query={QUERY}
 						variables={{ quantity: 5 }}

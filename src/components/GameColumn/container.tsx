@@ -14,13 +14,11 @@ export default compose(
 			onClick(id);
 		},
 
-		onColumnEnter: ({ setIsHovering }: any) => () => {
-			setIsHovering(true);
-		},
+		onColumnEnter: ({ setIsHovering }: any) => () =>
+			setIsHovering(true),
 
-		onColumnLeave: ({ setIsHovering }: any) => () => {
-			setIsHovering(false);
-		}
+		onColumnLeave: ({ setIsHovering }: any) => () =>
+			setIsHovering(false)
 	})
 )
 (GameColumn);

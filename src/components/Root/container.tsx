@@ -62,6 +62,8 @@ export default compose(
 
 		onGameOverClose: ({ reset }: any) => () => {
 			reset();
-		}
+		},
+
+		onLeaderboardClick: ({ setIsLeaderboardVisible }: any) => () => setIsLeaderboardVisible(true)
 	})
 )(Root);

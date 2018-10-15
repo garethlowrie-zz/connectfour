@@ -20,6 +20,7 @@ interface IPropTypes {
 	onPlayerTakesTurn: React.MouseEventHandler<any>;
 	onLeaderboardClose: React.MouseEventHandler<any>;
 	onGameOverClose: React.MouseEventHandler<any>;
+	onLeaderboardClick: React.MouseEventHandler<any>;
 }
 
 const Root: React.SFC<IPropTypes> = ({
@@ -33,6 +34,7 @@ const Root: React.SFC<IPropTypes> = ({
 	onStart,
 	onPlayerTakesTurn,
 	onLeaderboardClose,
+	onLeaderboardClick,
 	onGameOverClose
 }) => {
 	return (
@@ -41,7 +43,7 @@ const Root: React.SFC<IPropTypes> = ({
 				<PoseGroup animateOnMount={true}>
 					{
 						[
-							!isPlaying && <RootSetup key="setup" onStart={onStart} />,
+							!isPlaying && <RootSetup key="setup" onStart={onStart} onLeaderboardClick={onLeaderboardClick} />,
 							isPlaying && <RootGame key="game" data={data} activeTeam={activeTeam} currentPlayer={currentPlayer} onPlayerTakesTurn={onPlayerTakesTurn} />,
 							isLeaderboardVisible && <RootLeaderboard key="leaderboard" winner={winner} onClose={onLeaderboardClose} />,
 							isGameOver && <RootGameOver key="gameOver" onClose={onGameOverClose} />
