@@ -25,11 +25,9 @@
     "graphql-server-express": "^1.4.0",
     "graphql-tools": "^4.0.1",
     "mongodb": "^3.1.8",
-    "nodemon": "^1.18.4",
     "react": "^16.5.2",
     "react-apollo": "^2.2.4",
-    "react-dom": "^16.5.2",
-    "recompose": "^0.30.0"
+    "react-dom": "^16.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
@@ -56,8 +54,10 @@
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
     "lodash-es": "^4.17.11",
+    "nodemon": "^1.18.4",
     "postcss-loader": "^3.0.0",
     "react-pose": "3.3.3",
+    "recompose": "^0.30.0",
     "style-loader": "^0.23.0",
     "styled-components": "^3.4.9",
     "styled-flex-component": "^2.2.2",
