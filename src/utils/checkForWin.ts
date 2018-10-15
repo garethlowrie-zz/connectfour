@@ -41,7 +41,6 @@ const solutionChecker = (data: IGridSquare[], activeTeam: Teams, startPoints: nu
 };
 
 
-// TODO: DRY
 export default (data: IGridSquare[], activeTeam: Teams): Teams|undefined => {
 	const HORIZONTAL_RESULT = solutionChecker(data, activeTeam, HORIZONTAL_SOLUTION_START_POINTS, HORIZONTAL_BUFFER);
 
