@@ -27,13 +27,18 @@ const LeaderboardTable: React.SFC<IPropTypes> = ({
 				</Flex>
 			)}
 			{isErrored && (
-				<div className={styles.errorContainer}>
+				<FlexItem className={styles.errorContainer}>
 					<img src={logo} />
 					<p className={styles.error}>{LANG.couldntFindLeaderboard}<br />{LANG.beSureToTryAgain}</p>
-				</div>
+				</FlexItem>
+			)}
+			{!isLoading && !isData && (
+				<FlexItem>
+					{LANG.leaderboardNoScores}
+				</FlexItem>
 			)}
 			{isData &&
-				<>
+				<FlexItem>
 					<Flex key="header" className={styles.header}>
 						<FlexItem grow={1}>{LANG.playerName}</FlexItem>
 						<FlexItem>{LANG.score}</FlexItem>
@@ -44,7 +49,7 @@ const LeaderboardTable: React.SFC<IPropTypes> = ({
 							<FlexItem className={styles.score}>{score}</FlexItem>
 						</Flex>
 					))}
-				</>
+				</FlexItem>
 			}
 		</Flex>
 	)

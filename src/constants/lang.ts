@@ -16,5 +16,6 @@ export default {
 	gameOver: 'Game Over',
 	gameOverIntro: 'Wow, you\'re good at this aren\'t you. It looks like there\'s no winner this time.',
 	tryAgain: 'If you\'re feeling competitive, why not try again!',
-	playAgain: 'Play Again'
+	playAgain: 'Play Again',
+	leaderboardNoScores: 'Oh my, nobody has played this game yet. Act fast to get your name to the top of the leaderboard!'
 }
