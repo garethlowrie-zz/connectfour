@@ -7,7 +7,6 @@ import LeaderboardTable from 'src/components/LeaderboardTable/presentational';
 import { ApolloError } from 'apollo-client';
 import Flex, { FlexItem } from 'styled-flex-component';
 import LANG from 'src/constants/lang';
-import styles from './styles.less';
 import WinnerInfo from 'src/components/WinnerInfo/presentational';
 
 interface IPropTypes {
