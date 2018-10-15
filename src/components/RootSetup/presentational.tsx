@@ -4,7 +4,7 @@ import Flex, { FlexItem } from 'styled-flex-component';
 import Input from 'src/components/Input/container';
 import Button from 'src/components/Button/container';
 import posed from 'react-pose';
-import logo from 'images/logo.png';
+//import logo from 'images/logo.png';
 import LANG from 'src/constants/lang';
 
 interface IPropTypes {
@@ -44,7 +44,9 @@ const RootSetup: React.SFC<IPropTypes> = ({
 		<Container {...props}>
 			<Flex column justifyCenter alignCenter className={styles.container}>
 				<FlexItem>
-					<img src={logo} className={styles.logo} />
+					{
+						//<img src={logo} className={styles.logo} />
+					}
 				</FlexItem>
 				<FlexItem >
 					<Input tabIndex={1} placeholder={LANG.playerOne} value={playerOneName} spellCheck={false} className={styles.input} onChange={onPlayerOneChange} />
