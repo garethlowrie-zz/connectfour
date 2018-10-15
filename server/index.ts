@@ -34,7 +34,7 @@ const typeDefs = [`
 		mutation: Mutation
 	}
 `];
-	
+
 export const start = async () => {
   try {
     MongoClient.connect(MONGO_URL, (err, client) => {
@@ -48,7 +48,6 @@ export const start = async () => {
 					return prepare(await Players.findOne({ name }));
 				},
 				topPlayers: async (root: any, { quantity }: any) => {
-					console.log('QUANTITY ', quantity);
 					const limit = quantity || DEFAULT_QUANTITY;
 					return (await Players.find({}).sort({ score: -1 }).limit(limit).toArray()).map(prepare);
 				}
@@ -85,7 +84,7 @@ export const start = async () => {
 				}
 			}
 		};
-	  
+
 		const schema = makeExecutableSchema({
 			typeDefs,
 			resolvers

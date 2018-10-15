@@ -10,7 +10,7 @@ const findPlayerQuery = gql`
         player(name: $name) {
             _id
         }
-    } 
+    }
 `;
 
 const createPlayerQuery = gql`
@@ -19,7 +19,7 @@ const createPlayerQuery = gql`
             name
             score
         }
-    } 
+    }
 `;
 
 const incrementScoreQuery = gql`
@@ -28,7 +28,7 @@ const incrementScoreQuery = gql`
             name
             score
         }
-    } 
+    }
 `;
 
 export default compose(
@@ -41,7 +41,7 @@ export default compose(
             }
         })
     }),
-    graphql(createPlayerQuery, { 
+    graphql(createPlayerQuery, {
         props: ({ mutate }: any) => ({
             createPlayer: (name: string, score: number) => mutate({
                 variables: {
@@ -51,7 +51,7 @@ export default compose(
             })
         })
     }),
-    graphql(incrementScoreQuery, { 
+    graphql(incrementScoreQuery, {
         options: {
             refetchQueries: [
                 'TopPlayers'
@@ -68,7 +68,6 @@ export default compose(
     lifecycle({
         async componentDidMount() {
             const { player: { player }, incrementScore, setWinningScore } = this.props;
-            console.log('mount')
             if(player) {
                 const {data: { incrementScore: { score } }} = await incrementScore(player._id);
                 setWinningScore(score);
@@ -76,7 +75,6 @@ export default compose(
 
         },
         async componentDidUpdate(prevProps: any) {
-            console.log('update ')
             const { winner, player: { player, loading }, createPlayer, incrementScore, setWinningScore } = this.props;
             const hasFetchedNewData = prevProps.player.loading && !loading;
             if(hasFetchedNewData && player) {
