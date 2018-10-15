@@ -6,8 +6,8 @@ import gql from "graphql-tag";
 import LeaderboardTable from 'src/components/LeaderboardTable/presentational';
 import { ApolloError } from 'apollo-client';
 import Flex, { FlexItem } from 'styled-flex-component';
-import styles from './styles.less';
 import LANG from 'src/constants/lang';
+import styles from './styles.less';
 
 interface IPropTypes {
 	winner: string;

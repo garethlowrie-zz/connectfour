@@ -37,7 +37,7 @@ const typeDefs = [`
 
 export const start = async () => {
   try {
-    MongoClient.connect(MONGO_URL, (err, client) => {
+    MongoClient.connect(MONGO_URL, (err: any, client: any) => {
 		let db = client.db('emailydev');
 		const Players = db.collection('players');
 		const DEFAULT_QUANTITY = 5;
