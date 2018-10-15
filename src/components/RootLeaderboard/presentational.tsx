@@ -45,7 +45,7 @@ const RootLeaderboard: React.SFC<IPropTypes> = ({
 	return (
 		<Container {...props}>
 			<Dialog title={`🏆 ${LANG.leaderboard}`} onClose={onClose}>
-				<Flex full column className={styles.dialogBodyContainer}>
+				<Flex full column>
 					{winningScore && winner && (
 						<FlexItem>
 							<WinnerInfo name={winner} score={winningScore} />
