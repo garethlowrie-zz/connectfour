@@ -8,6 +8,7 @@ import { ApolloError } from 'apollo-client';
 import Flex, { FlexItem } from 'styled-flex-component';
 import LANG from 'src/constants/lang';
 import styles from './styles.less';
+import WinnerInfo from 'src/components/WinnerInfo/presentational';
 
 interface IPropTypes {
 	winner: string;
@@ -47,27 +48,22 @@ const RootLeaderboard: React.SFC<IPropTypes> = ({
 				<Flex full column className={styles.dialogBodyContainer}>
 					{winningScore && winner && (
 						<FlexItem>
-							<div className={styles.winningScoreContainer}>
-								<div className={styles.winningScore}>
-									<div className={styles.text}>{winningScore}</div>
-								</div>
-							</div>
-							<div className={styles.winner}>
-								<span className={styles.winnerName}>{winner}</span> {LANG.winsThisRound}
-							</div>
+							<WinnerInfo name={winner} score={winningScore} />
 						</FlexItem>
 					)}
-					<Query
-						query={QUERY}
-						variables={{ quantity: 5 }}
-					>
-						{({ loading, error, data }) => {
-							const isErrored = error instanceof ApolloError;
-							return (
-								<LeaderboardTable isLoading={loading} isErrored={isErrored} data={data.topPlayers} />
-							)
-						}}
-					</Query>
+					<FlexItem grow={1}>
+						<Query
+							query={QUERY}
+							variables={{ quantity: 5 }}
+						>
+							{({ loading, error, data }) => {
+								const isErrored = error instanceof ApolloError;
+								return (
+									<LeaderboardTable isLoading={loading} isErrored={isErrored} data={data.topPlayers} />
+								)
+							}}
+						</Query>
+					</FlexItem>
 				</Flex>
 			</Dialog>
 		</Container>
