@@ -1,12 +1,12 @@
 import * as React from 'react';
 import styles from './styles.less';
 import Flex, { FlexItem } from 'styled-flex-component';
-import RootSetup from 'components/RootSetup/container';
-import RootGame from 'components/RootGame/container';
-import RootLeaderboard from 'components/RootLeaderboard/container';
-import { IGridSquare } from 'constants/setup';
+import RootSetup from 'src/components/RootSetup/container';
+import RootGame from 'src/components/RootGame/container';
+import RootLeaderboard from 'src/components/RootLeaderboard/container';
+import RootGameOver from 'src/components/RootGameOver/presentational';
+import { IGridSquare } from 'src/constants/setup';
 import { PoseGroup } from 'react-pose';
-//import logo from 'images/logo.png';
 
 interface IPropTypes {
 	data: IGridSquare[];
@@ -15,9 +15,12 @@ interface IPropTypes {
 	currentPlayer: string;
 	isPlaying: boolean;
 	isLeaderboardVisible: boolean;
-	onLeaderboardClose: React.MouseEventHandler<any>;
+	isGameOver: boolean;
 	onStart: React.MouseEventHandler<any>;
 	onPlayerTakesTurn: React.MouseEventHandler<any>;
+	onLeaderboardClose: React.MouseEventHandler<any>;
+	onGameOverClose: React.MouseEventHandler<any>;
+	onLeaderboardClick: React.MouseEventHandler<any>;
 }
 
 const Root: React.SFC<IPropTypes> = ({
@@ -27,21 +30,23 @@ const Root: React.SFC<IPropTypes> = ({
 	currentPlayer,
 	isPlaying,
 	isLeaderboardVisible,
+	isGameOver,
 	onStart,
 	onPlayerTakesTurn,
-	onLeaderboardClose
+	onLeaderboardClose,
+	onLeaderboardClick,
+	onGameOverClose
 }) => {
 	return (
 		<Flex justifyCenter alignCenter className={styles.container} >
 			<FlexItem>
-				{//<img src={logo} className={styles.logo} />
-				}
 				<PoseGroup animateOnMount={true}>
 					{
 						[
-							!isPlaying && <RootSetup key="setup" onStart={onStart} />,
+							!isPlaying && <RootSetup key="setup" onStart={onStart} onLeaderboardClick={onLeaderboardClick} />,
 							isPlaying && <RootGame key="game" data={data} activeTeam={activeTeam} currentPlayer={currentPlayer} onPlayerTakesTurn={onPlayerTakesTurn} />,
-							isLeaderboardVisible && <RootLeaderboard key="leaderboard" winner={winner} onClose={onLeaderboardClose} />
+							isLeaderboardVisible && <RootLeaderboard key="leaderboard" winner={winner} onClose={onLeaderboardClose} />,
+							isGameOver && <RootGameOver key="gameOver" onClose={onGameOverClose} />
 						] as any
 					}
 				</PoseGroup>

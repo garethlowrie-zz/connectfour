@@ -2,5 +2,19 @@ export default {
 	playerOne: 'Player 1',
 	playerTwo: 'Player 2',
 	start: 'Start',
-	youMustEnterNames: 'You must enter both player names first'
+	youMustEnterNames: 'Please enter the player names above',
+	playersCantBeTheSame: 'You can\'t play with yourself! Why not play a friend instead...',
+	close: 'Close',
+	couldntFindLeaderboard: 'Whoops we couldn\'t find the leaderboard',
+	beSureToTryAgain: 'Be sure to try again later',
+	playerName: 'Player Name',
+	score: 'Score',
+	its: 'It\'s',
+	turn: 'turn',
+	leaderboard: 'Leaderboard',
+	winsThisRound: 'wins this round!',
+	gameOver: 'Game Over',
+	gameOverIntro: 'Wow, you\'re good at this aren\'t you. It looks like there\'s no winner this time.',
+	tryAgain: 'If you\'re feeling competitive, why not try again!',
+	playAgain: 'Play Again'
 }

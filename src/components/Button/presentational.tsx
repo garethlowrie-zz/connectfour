@@ -15,13 +15,14 @@ const Button: React.SFC<IPropTypes> = ({
 	isDisabled,
 	className,
 	onKeyPress,
+	children,
 	...props
 }) => {
 	const buttonClassName = classNames(styles.button, className, {
 		[styles.isDisabled]: isDisabled
 	});
 
-	return <div {...props} className={buttonClassName} onKeyPress={onKeyPress}>Start</div>
+	return <div {...props} className={buttonClassName} onKeyPress={onKeyPress}>{children}</div>
 };
 
 export default Button;

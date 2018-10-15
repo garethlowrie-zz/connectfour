@@ -3,4 +3,3 @@ node_modules
 dist
 .tmp
 yarn-error.log
-/webpack.config.js

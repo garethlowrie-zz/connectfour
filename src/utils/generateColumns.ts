@@ -1,4 +1,4 @@
-import { IGridSquare } from 'constants/setup';
+import { IGridSquare } from 'src/constants/setup';
 import range from 'lodash-es/range';
 import getColumn from './getColumn';
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styles from './styles.less';
-import Teams from 'enums/Teams';
+import Teams from 'src/enums/Teams';
 import classNames from 'classnames';
 import posed from 'react-pose';
 
@@ -12,14 +12,14 @@ interface IPropTypes {
 
 const Disc = posed.div({
 	outside: {
-		y: ({ outsidePosition }: any) => outsidePosition
-	  },
-	  inside: {
+        y: ({ outsidePosition }: any) => outsidePosition
+    },
+    inside: {
 		y: 0,
 		transition: {
-		  duration: 300
+            duration: 300
 		}
-	  }
+    }
 });
 
 const GameDisc: React.SFC<IPropTypes> = ({
