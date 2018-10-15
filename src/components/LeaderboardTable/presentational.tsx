@@ -45,8 +45,8 @@ const LeaderboardTable: React.SFC<IPropTypes> = ({
 					</Flex>
 					{data.map(({ name, score }: any) => (
 						<Flex key={`${name}-${score}`} className={styles.row}>
-							<FlexItem grow={1} className={styles.name}>{name}</FlexItem>
-							<FlexItem className={styles.score}>{score}</FlexItem>
+							<FlexItem grow={1}>{name}</FlexItem>
+							<FlexItem>{score}</FlexItem>
 						</Flex>
 					))}
 				</FlexItem>
